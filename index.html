@@ -1,0 +1,1009 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Special Core | Soluções Digitais</title>
+
+  <meta name="description" content="Special Core — desenvolvimento de sites e soluções digitais.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050505;
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background:
+        radial-gradient(circle at 20% 20%, rgba(120, 70, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(0, 180, 255, 0.08), transparent 30%);
+
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+      background-size: 50px 50px;
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: calc(100% - 40px);
+      max-width: 1100px;
+
+      padding: 15px 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      background: rgba(5,5,5,0.65);
+
+      backdrop-filter: blur(18px);
+
+      border-radius: 16px;
+
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-weight: 700;
+
+      letter-spacing: -1px;
+
+      font-size: 18px;
+    }
+
+    .logo span {
+      color: #8b5cf6;
+    }
+
+    nav a {
+      color: #aaa;
+
+      text-decoration: none;
+
+      margin-left: 25px;
+
+      font-size: 14px;
+
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 120px 20px 80px;
+    }
+
+    .hero-content {
+      max-width: 950px;
+    }
+
+    .tag {
+      display: inline-block;
+
+      padding: 8px 14px;
+
+      border: 1px solid rgba(139,92,246,0.35);
+
+      background: rgba(139,92,246,0.08);
+
+      border-radius: 999px;
+
+      font-size: 13px;
+
+      color: #c4b5fd;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: clamp(50px, 9vw, 105px);
+
+      line-height: 0.95;
+
+      letter-spacing: -6px;
+
+      margin-bottom: 30px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        #fff,
+        #a78bfa,
+        #60a5fa,
+        #fff
+      );
+
+      background-size: 300%;
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+
+      animation: gradientMove 6s infinite linear;
+    }
+
+    @keyframes gradientMove {
+
+      0% {
+        background-position: 0%;
+      }
+
+      100% {
+        background-position: 300%;
+      }
+
+    }
+
+    .hero p {
+      max-width: 650px;
+
+      margin: auto;
+
+      color: #999;
+
+      font-size: 18px;
+
+      line-height: 1.7;
+    }
+
+    .scroll {
+      margin-top: 70px;
+
+      color: #666;
+
+      font-size: 12px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* SEÇÕES */
+
+    section {
+      min-height: 100vh;
+
+      max-width: 1100px;
+
+      margin: auto;
+
+      padding: 120px 25px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+    }
+
+    .section-label {
+      color: #8b5cf6;
+
+      font-size: 13px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: clamp(40px, 6vw, 75px);
+
+      line-height: 1;
+
+      letter-spacing: -3px;
+
+      margin-bottom: 30px;
+    }
+
+    section > p {
+      color: #999;
+
+      font-size: 18px;
+
+      line-height: 1.8;
+
+      max-width: 750px;
+    }
+
+
+    /* SERVIÇOS */
+
+    .cards {
+      margin-top: 60px;
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 20px;
+    }
+
+    .card {
+      padding: 35px;
+
+      min-height: 230px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      border-radius: 20px;
+
+      background: rgba(255,255,255,0.025);
+
+      transition:
+        transform 0.4s,
+        border-color 0.4s,
+        background 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+
+      border-color: rgba(139,92,246,0.5);
+
+      background: rgba(139,92,246,0.05);
+    }
+
+    .card-number {
+      color: #555;
+
+      font-size: 13px;
+
+      margin-bottom: 30px;
+    }
+
+    .card h3 {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 25px;
+
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #888;
+
+      line-height: 1.7;
+    }
+
+
+    /* CONHECIMENTOS */
+
+    .skills {
+      margin-top: 50px;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 12px 18px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      border-radius: 10px;
+
+      color: #bbb;
+
+      background: rgba(255,255,255,0.025);
+
+      font-size: 14px;
+
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      color: white;
+
+      border-color: #8b5cf6;
+
+      transform: translateY(-3px);
+    }
+
+
+    /* PROJETOS */
+
+    .project {
+      margin-top: 50px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      background: rgba(255,255,255,0.025);
+    }
+
+    .project-image {
+      min-height: 400px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139,92,246,0.35),
+          rgba(0,0,0,0.8)
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 45px;
+
+      font-weight: 700;
+    }
+
+    .project-info {
+      padding: 50px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+    }
+
+    .project-info h3 {
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 35px;
+
+      margin-bottom: 20px;
+    }
+
+    .project-info p {
+      color: #888;
+
+      line-height: 1.7;
+
+      margin-bottom: 30px;
+    }
+
+    .project-button {
+      display: inline-block;
+
+      width: fit-content;
+
+      padding: 13px 20px;
+
+      border-radius: 10px;
+
+      background: white;
+
+      color: black;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      transition: 0.3s;
+    }
+
+    .project-button:hover {
+      transform: translateY(-3px);
+
+      background: #ddd;
+    }
+
+
+    /* CONTATO */
+
+    .contact {
+      text-align: center;
+
+      align-items: center;
+    }
+
+    .contact p {
+      max-width: 600px;
+
+      margin-bottom: 40px;
+    }
+
+    .contact-button {
+      display: inline-block;
+
+      padding: 18px 30px;
+
+      background: white;
+
+      color: black;
+
+      border-radius: 12px;
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+      transition: 0.3s;
+    }
+
+    .contact-button:hover {
+      transform: scale(1.04);
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+
+      padding: 55px 25px;
+
+      text-align: center;
+
+      color: #666;
+
+      font-size: 13px;
+    }
+
+    .copyright {
+      font-size: 40px;
+
+      color: rgba(255,255,255,0.12);
+
+      margin-bottom: 12px;
+    }
+
+    .creator {
+      color: #aaa;
+
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      color: #888;
+
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+
+    /* ANIMAÇÃO */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(70px);
+
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+
+    /* CELULAR */
+
+    @media (max-width: 700px) {
+
+      nav {
+        width: calc(100% - 25px);
+      }
+
+      nav a {
+        display: none;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      section {
+        padding: 100px 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        min-height: 250px;
+      }
+
+      .project-info {
+        padding: 30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      Special<span>Core.</span>
+    </div>
+
+    <div>
+
+      <a href="#sobre">Sobre</a>
+
+      <a href="#servicos">Serviços</a>
+
+      <a href="#conhecimentos">Conhecimentos</a>
+
+      <a href="#projetos">Projetos</a>
+
+      <a href="#contato">Contato</a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content reveal">
+
+      <div class="tag">
+        Special Core — Soluções Digitais
+      </div>
+
+      <h1>
+        Special<br>
+        <span class="gradient-text">Core.</span>
+      </h1>
+
+      <p>
+        Desenvolvimento de sites e soluções digitais
+        pensadas para transformar ideias em projetos reais.
+      </p>
+
+      <div class="scroll">
+        ↓ role para explorar
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- SOBRE -->
+
+  <section id="sobre">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        01 — Sobre a Special Core
+      </div>
+
+      <h2>
+        Ideias que ganham<br>
+        forma digital.
+      </h2>
+
+      <p>
+        A Special Core nasceu com o objetivo de criar projetos
+        digitais modernos, funcionais e personalizados.
+        O foco está em transformar necessidades e ideias em
+        experiências digitais bem construídas.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVIÇOS -->
+
+  <section id="servicos">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        02 — Serviços
+      </div>
+
+      <h2>
+        O que podemos<br>
+        criar.
+      </h2>
+
+      <p>
+        Projetos desenvolvidos de acordo com a necessidade
+        de cada pessoa, empresa ou iniciativa.
+      </p>
+
+    </div>
+
+
+    <div class="cards reveal">
+
+
+      <div class="card">
+
+        <div class="card-number">
+          01
+        </div>
+
+        <h3>
+          Desenvolvimento Web
+        </h3>
+
+        <p>
+          Criação de sites personalizados, responsivos e
+          modernos para apresentar empresas, projetos,
+          serviços e ideias na internet.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-number">
+          02
+        </div>
+
+        <h3>
+          Presença Digital
+        </h3>
+
+        <p>
+          Estruturação de páginas e experiências digitais
+          pensadas para tornar uma marca mais presente
+          e acessível na internet.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-number">
+          03
+        </div>
+
+        <h3>
+          Soluções Personalizadas
+        </h3>
+
+        <p>
+          Desenvolvimento de soluções digitais adaptadas
+          às necessidades específicas de cada projeto.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-number">
+          04
+        </div>
+
+        <h3>
+          Projetos Digitais
+        </h3>
+
+        <p>
+          Desenvolvimento de projetos que combinam
+          tecnologia, organização e criatividade para
+          transformar conceitos em experiências funcionais.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- CONHECIMENTOS -->
+
+  <section id="conhecimentos">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        03 — Conhecimentos
+      </div>
+
+      <h2>
+        Ferramentas e<br>
+        tecnologias.
+      </h2>
+
+      <p>
+        Conhecimentos utilizados no desenvolvimento e
+        organização dos projetos da Special Core.
+      </p>
+
+    </div>
+
+
+    <div class="skills reveal">
+
+      <div class="skill">HTML</div>
+
+      <div class="skill">CSS</div>
+
+      <div class="skill">JavaScript</div>
+
+      <div class="skill">GitHub</div>
+
+      <div class="skill">GitHub Pages</div>
+
+      <div class="skill">Design Digital</div>
+
+      <div class="skill">Ferramentas Digitais</div>
+
+      <div class="skill">Automação</div>
+
+      <div class="skill">Inteligência Artificial</div>
+
+      <div class="skill">Ambientes Windows</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJETOS -->
+
+  <section id="projetos">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        04 — Projetos
+      </div>
+
+      <h2>
+        Trabalhos e<br>
+        experiências.
+      </h2>
+
+      <p>
+        Esta área será atualizada conforme novos projetos
+        forem desenvolvidos.
+      </p>
+
+    </div>
+
+
+    <div class="project reveal">
+
+      <div class="project-image">
+        SCr
+      </div>
+
+
+      <div class="project-info">
+
+        <h3>
+          Projeto Web
+        </h3>
+
+        <p>
+          Um exemplo de desenvolvimento web criado para
+          demonstrar a capacidade de construir uma presença
+          digital moderna e personalizada.
+        </p>
+
+        <a href="#contato" class="project-button">
+          Quero conversar
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTATO -->
+
+  <section id="contato" class="contact">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        05 — Contato
+      </div>
+
+      <h2>
+        Vamos criar algo?
+      </h2>
+
+      <p>
+        Possui uma empresa, projeto ou ideia e precisa
+        de uma presença digital? Entre em contato e
+        vamos conversar sobre o projeto.
+      </p>
+
+      <a
+        href="mailto:SEUEMAIL@EMAIL.COM"
+        class="contact-button"
+      >
+        Entrar em contato
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="copyright">
+      ©
+    </div>
+
+    <div class="creator">
+      Criador: <strong>Samuel Aguiar</strong>
+    </div>
+
+    <p>
+      © 2026 Special Core — Todos os direitos reservados.
+    </p>
+
+    <br>
+
+    <p>
+      Direitos autorais —
+      <a
+        href="https://www.gov.br/pt-br/servicos/registrar-ou-averbar-direito-autoral"
+        target="_blank"
+      >
+        saiba mais
+      </a>
+    </p>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const elements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("active");
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.15
+      }
+
+    );
+
+
+    elements.forEach((element) => {
+
+      observer.observe(element);
+
+    });
+
+  </script>
+
+
+</body>
+</html>
+```
